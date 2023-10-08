@@ -3,6 +3,7 @@ services:
   app:
     
     image: techtrio/appca4 # Use the image from Docker Hub
+    platform: linux/amd64
     container_name: my_web_server
     links:
       - db

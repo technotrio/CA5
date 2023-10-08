@@ -1,7 +1,6 @@
 version: "3"
 services:
   app:
-    
     image: techtrio/appca4 # Use the image from Docker Hub
     platform: linux/amd64
     container_name: my_web_server
@@ -9,6 +8,8 @@ services:
       - db
     ports:
       - "5000:5000"
+    depends_on:
+      - db # Ensure that the database service is started before the app service
   db:
     image: techtrio/ca4 # Use the image from Docker Hub
     container_name: ca4_db

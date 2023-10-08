@@ -33,16 +33,16 @@ Member 1 - Docker Compose File:
 Member 2 - Web Server Service:
 
 1. Select and Set Up the Web Server Application:
-   - Chose web server application Python and set it up.
+   Made a flask web app in app.py
 
 2. Configure Dockerfile:
-   - Configured the Dockerfile for the web server service.
+   - Made a dockerfile for the python file
 
 3. Create Docker Image:
-   - Created a Docker image for the web server.
+   - Created a Docker image for the web server using docker build command
 
 4. Push Docker Image:
-   - Pushed the Docker image to the group's Docker Hub profile.
+   - Pushed the Docker image to the group's Docker Hub profile using docker run and docker push command
 
 5. Document Building and Running Steps:
    - Documented the steps for building and running the web server service.

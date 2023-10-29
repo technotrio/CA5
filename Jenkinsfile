@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PATH = "c/Program Files/Docker/Docker/resources/bin/docker:$PATH"  // Adjust the path accordingly
+    }
+
     stages {
         stage('Checkout') {
             steps {

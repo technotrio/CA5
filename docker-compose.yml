@@ -1,0 +1,26 @@
+version: "3"
+services:
+  app:
+    image: techtrio/appca4 # Use the image from Docker Hub
+    platform: linux/amd64
+    container_name: my_web_server
+    links:
+      - db
+    ports:
+      - "80:80"
+    depends_on:
+      - db # Ensure that the database service is started before the app service
+  db:
+    image: techtrio/ca4 # Use the image from Docker Hub
+    container_name: ca4_db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: mlops123
+      MYSQL_DATABASE: CA4
+      MYSQL_USER: member3
+      MYSQL_PASSWORD: mlops123
+
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d:ro # Corrected volume path
+

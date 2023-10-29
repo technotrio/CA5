@@ -1,16 +1,19 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER_HUB_USERNAME = 'TechTrio'
-        DOCKER_HUB_PASSWORD = 'techtrio_1998'
-    }
-
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Docker Login') {
             steps {
                 script {
-                    sh "docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD"
+                    withCredentials([usernamePassword(credentialsId: '6beba5b8-9507-4b39-86c5-da901d3a0209', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                        sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
+                    }
                 }
             }
         }
@@ -25,19 +28,18 @@ pipeline {
         }
 
         stage('Tag Image') {
-            steps {
-                script {
-                    // Tag the Docker image
-                    sh 'docker tag techtrio/ca4 techtrio/ca4:latest'
+                    steps {
+                        script {
+                            sh 'docker tag techtrio/ca4 techtrio/ca4:latest'
+                           
+                        }
+                    }
                 }
-            }
-        }
 
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    // Push the Docker image to Docker Hub
-                    sh 'docker push techtrio/ca4:latest'
+                   sh 'docker push techtrio/ca4:latest'
                 }
             }
         }
@@ -52,3 +54,4 @@ pipeline {
         }
     }
 }
+

@@ -7,6 +7,16 @@ pipeline {
                 checkout scm
             }
         }
+        stage('Docker Login') {
+             steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'Docker', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                        sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
+                    }
+                }
+            }
+        }
+
 
         stage('Build Docker Image') {
             steps {

@@ -22,6 +22,7 @@ To run the My App stack, follow these steps:
    cd my-app
 
 2. Start the Docker Compose stack:
+
    docker-compose up -d
 
 3. Wait for the containers to start. You can check the logs to monitor the progress:

@@ -18,7 +18,7 @@ To run the My App stack, follow these steps:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/technotrio/CA4.git
+   git clone https://github.com/technotrio/CA5.git
    cd my-app
 
 2. Start the Docker Compose stack:

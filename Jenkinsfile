@@ -44,4 +44,8 @@ pipeline {
             error 'Failed to start Docker Compose stack.'
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ace3c1213247854fe085da6df960bb2d8ea5c750

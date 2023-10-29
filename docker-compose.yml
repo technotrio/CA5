@@ -1,7 +1,6 @@
 version: "3"
 services:
   app:
-    
     image: techtrio/appca4 # Use the image from Docker Hub
     platform: linux/amd64
     container_name: my_web_server
@@ -21,6 +20,8 @@ services:
       MYSQL_DATABASE: CA4
       MYSQL_USER: member3
       MYSQL_PASSWORD: mlops123
+      
     volumes:
       - ./db:/docker-entrypoint-initdb.d:ro # Corrected volume path
+    
 
